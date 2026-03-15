@@ -14,7 +14,7 @@ typedef struct{
     char nomeProduto[50];
 } Produto;
 
-void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int>& mapaClientes);
+void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int>& mapaClientes, vector<string>& produtos, map<int, int>& mapaProdutos, vector<vector<int>>& listaDeCompras);
 
 void imprimirVetor(vector<string>& vetor);
 
