@@ -17,6 +17,15 @@ int main(){
         gerarListaCompras(caminho, codigoClientesVector, codigoClientesMapa, nomeProdutosVector, codigoProdutosMapa, listaFinalCompras);
     }
 
+    int numeroDeClientes = codigoClientesMapa.size();
+    int numeroDeProdutos = codigoProdutosMapa.size();
+
+    vector<vector<int>> MatrizDeCompras1 = gerarMatrizComprasGrande(listaFinalCompras, numeroDeClientes, numeroDeProdutos);
+
+    vector<vector<int>> MatrizIntersecao = GerarMatrizIntersecao(MatrizDeCompras1, numeroDeClientes, numeroDeProdutos);
+
+    vector<vector<float>> MatrizSimilaridade = GerarMatrizSimilaridade(MatrizIntersecao, listaFinalCompras);
+
     imprimirVetor(codigoClientesVector);
     imprimirMapa(codigoClientesMapa);
 

@@ -19,3 +19,9 @@ void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int
 void imprimirVetor(vector<string>& vetor);
 
 void imprimirMapa(map<string, int>& mapa);
+
+vector<vector<int>> gerarMatrizComprasGrande (vector<vector<int>> &ListaDeCompras, int numeroDeClientes, int numDeProdutos);
+
+vector<vector<int>> GerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos);
+
+vector<vector<float>> GerarMatrizSimilaridade(vector<vector<int>> &MatrizIntersecao, vector<vector<int>> &ListaDeCompras);
