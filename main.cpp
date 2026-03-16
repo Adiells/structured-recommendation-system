@@ -29,5 +29,11 @@ int main(){
     imprimirVetor(codigoClientesVector);
     imprimirMapa(codigoClientesMapa);
 
+     cout << "Imprimindo matrizes \n" << endl;
+
+     imprimirMatrizComprasGrande(MatrizDeCompras1);
+     ImprimirMatrizIntersecao(MatrizIntersecao);
+     imprimirMatrizSimilaridade(MatrizSimilaridade);
+
     return 0;
 }

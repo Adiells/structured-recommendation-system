@@ -45,3 +45,36 @@ vector<vector<float>> GerarMatrizSimilaridade(vector<vector<int>> &MatrizInterse
     }
     return MatrizSimilaridade;
 }
+// Funções auxiliares para acompanhar geração das matrizes
+
+void imprimirMatrizComprasGrande ( vector<vector<int>>& MatrizComprasGrande){
+    int i, j;
+    for(i =0; i < MatrizComprasGrande.size(); i++){
+        cout << "Cliente ["<< i <<"]: ";
+        for(j = 0; j < MatrizComprasGrande[i].size(); j++){
+            cout << MatrizComprasGrande[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void ImprimirMatrizIntersecao(vector<vector<int>>& MatrizIntersecao){
+    int i,j;
+    for(i=0; i < MatrizIntersecao.size(); i++){
+        cout << "Cliente ["<< i <<"] ";
+        for(j=0; j < MatrizIntersecao[i].size(); j++){
+            cout << MatrizIntersecao[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void imprimirMatrizSimilaridade(vector<vector<float>>& matrizSimilaridade){
+    for(int i = 0; i < matrizSimilaridade.size(); i++){
+        cout << "Cliente [" << i << "]: ";
+        for(int j = 0; j < matrizSimilaridade[i].size(); j++){
+            cout << matrizSimilaridade[i][j] << " ";
+        }
+        cout << endl;
+    }
+}

@@ -25,3 +25,9 @@ vector<vector<int>> gerarMatrizComprasGrande (vector<vector<int>> &ListaDeCompra
 vector<vector<int>> GerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos);
 
 vector<vector<float>> GerarMatrizSimilaridade(vector<vector<int>> &MatrizIntersecao, vector<vector<int>> &ListaDeCompras);
+
+void imprimirMatrizComprasGrande ( vector<vector<int>>& MatrizComprasGrande);
+
+void ImprimirMatrizIntersecao(vector<vector<int>>& MatrizIntersecao);
+
+void imprimirMatrizSimilaridade(vector<vector<float>>& matrizSimilaridade);
