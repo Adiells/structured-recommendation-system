@@ -15,19 +15,3 @@ typedef struct{
 } Produto;
 
 void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int>& mapaClientes, vector<string>& produtos, map<int, int>& mapaProdutos, vector<vector<int>>& listaDeCompras);
-
-void imprimirVetor(vector<string>& vetor);
-
-void imprimirMapa(map<string, int>& mapa);
-
-vector<vector<int>> gerarMatrizComprasGrande (vector<vector<int>> &ListaDeCompras, int numeroDeClientes, int numDeProdutos);
-
-vector<vector<int>> GerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos);
-
-vector<vector<float>> GerarMatrizSimilaridade(vector<vector<int>> &MatrizIntersecao, vector<vector<int>> &ListaDeCompras);
-
-void imprimirMatrizComprasGrande ( vector<vector<int>>& MatrizComprasGrande);
-
-void ImprimirMatrizIntersecao(vector<vector<int>>& MatrizIntersecao);
-
-void imprimirMatrizSimilaridade(vector<vector<float>>& matrizSimilaridade);

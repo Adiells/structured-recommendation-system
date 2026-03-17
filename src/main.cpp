@@ -1,4 +1,6 @@
 #include "listaCompras.h"
+#include "matrizSimilaridade.h"
+#include "utils.h"
 
 int main(){
     vector<string> codigoClientesVector;
@@ -11,7 +13,8 @@ int main(){
 
     vector<vector<int>> listaFinalCompras(codigoClientesMapa.size());
 
-    for(int i = 0; i <= 10; i++){
+    //Deixando em 1 por enquanto para nao demorar a gerar a matriz intersecao
+    for(int i = 0; i < 1; i++){
         char caminho[35];
         sprintf(caminho, "data/dados_venda_cluster_%d.csv", i);
         gerarListaCompras(caminho, codigoClientesVector, codigoClientesMapa, nomeProdutosVector, codigoProdutosMapa, listaFinalCompras);
@@ -22,18 +25,18 @@ int main(){
 
     vector<vector<int>> MatrizDeCompras1 = gerarMatrizComprasGrande(listaFinalCompras, numeroDeClientes, numeroDeProdutos);
 
-    vector<vector<int>> MatrizIntersecao = GerarMatrizIntersecao(MatrizDeCompras1, numeroDeClientes, numeroDeProdutos);
+    vector<vector<int>> MatrizIntersecao = gerarMatrizIntersecao(MatrizDeCompras1, numeroDeClientes, numeroDeProdutos);
 
-    vector<vector<float>> MatrizSimilaridade = GerarMatrizSimilaridade(MatrizIntersecao, listaFinalCompras);
+    vector<vector<float>> MatrizSimilaridade = gerarMatrizSimilaridade(MatrizIntersecao);
 
-    imprimirVetor(codigoClientesVector);
-    imprimirMapa(codigoClientesMapa);
+    // imprimirVetor(codigoClientesVector);
+    // imprimirMapa(codigoClientesMapa);
 
-     cout << "Imprimindo matrizes \n" << endl;
+    //  cout << "Imprimindo matrizes \n" << endl;
 
-     imprimirMatrizComprasGrande(MatrizDeCompras1);
-     ImprimirMatrizIntersecao(MatrizIntersecao);
-     imprimirMatrizSimilaridade(MatrizSimilaridade);
+    //  imprimirMatriz(MatrizDeCompras1);
+    //  imprimirMatriz(MatrizIntersecao);
+    //  imprimirMatriz(MatrizSimilaridade);
 
     return 0;
 }

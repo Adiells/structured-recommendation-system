@@ -9,9 +9,9 @@ void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int
     int ultimoProduto = 0;
 
     fscanf(arquivo, "%*[^\n]\n");
-    while(fscanf(arquivo, "%d, %8[^,], %d, %49[^\n]\n", &produto.dataCompra, produto.codeCliente, &produto.codeProduto, produto.nomeProduto) == 4){
-        clientes.push_back(produto.codeCliente);
+    while(fscanf(arquivo, "%d,%8[^,],%d,%49[^\n]\n", &produto.dataCompra, produto.codeCliente, &produto.codeProduto, produto.nomeProduto) == 4){
         if(mapaClientes.find(produto.codeCliente) == mapaClientes.end()){
+            clientes.push_back(produto.codeCliente);
             if(mapaClientes.empty()){
                 mapaClientes[produto.codeCliente] = 0;
             }else{
@@ -19,19 +19,20 @@ void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int
             }
 
             listaDeCompras.push_back(vector<int>()); 
+            //Copia o código do ultimo cliente para a variável ultimoCliente
+            strcpy(ultimoCliente, produto.codeCliente);
         }
-        //Copia o código do ultimo cliente para a variável ultimoCliente
-        strcpy(ultimoCliente, produto.codeCliente);
 
-        produtos.push_back(produto.nomeProduto);
         if(mapaProdutos.find(produto.codeProduto) == mapaProdutos.end()){
+            produtos.push_back(produto.nomeProduto);
             if(mapaProdutos.empty()){
                 mapaProdutos[produto.codeProduto] = 0;
             }else{
                 mapaProdutos[produto.codeProduto] = mapaProdutos[ultimoProduto] + 1;
             }
+            ultimoProduto = produto.codeProduto;
         }
-        ultimoProduto = produto.codeProduto;
+        
 
         int indiceCliente = mapaClientes[produto.codeCliente];
         int indiceProduto = mapaProdutos[produto.codeProduto];
@@ -40,20 +41,4 @@ void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int
     
     }
     fclose(arquivo);
-}
-
-
-//Funções de auxílio para acompanhar o desenvolvimento do nosso código
-void imprimirVetor(vector<string>& vetor){
-    int i = 1;
-    for(string& elemento : vetor){
-        cout << "Código: " << i << " " << elemento << endl;
-        i++;
-    }
-}
-
-void imprimirMapa(map<string, int>& mapa){
-    for(pair<const string, int>& elemento : mapa){
-        cout << "Código: " << elemento.first << " | Índice interno: " << elemento.second << endl;
-    }
 }
