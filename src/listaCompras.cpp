@@ -20,6 +20,7 @@ void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int
 
             listaDeCompras.push_back(vector<int>()); 
         }
+        //Copia o código do ultimo cliente para a variável ultimoCliente
         strcpy(ultimoCliente, produto.codeCliente);
 
         produtos.push_back(produto.nomeProduto);
