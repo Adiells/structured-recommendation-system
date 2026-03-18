@@ -20,7 +20,6 @@ vector<vector<int>> gerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1
     for(int i =0; i < numeroDeClientes; i++){
         for(int j = 0; j < numeroDeClientes; j++){
             for(int k = 0 ; k < numDeProdutos; k++){
-                // cout << "teste" <<  " " << i << " " << j << " " << k << endl;
                 MatrizIntersecao[i][j] += MatrizDeCompras1[i][k] * MatrizDeCompras1[j][k];
             }
         }
