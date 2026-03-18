@@ -1,9 +1,9 @@
+#ifndef LISTACOMPRAS_H
+#define LISTACOMPRAS_H
+
 #include <vector>
 #include <map>
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 using namespace std;
 
@@ -14,4 +14,12 @@ typedef struct{
     char nomeProduto[50];
 } Produto;
 
-void gerarListaCompras(char caminho[], vector<string>& clientes, map<string, int>& mapaClientes, vector<string>& produtos, map<int, int>& mapaProdutos, vector<vector<int>>& listaDeCompras);
+void gerarListaCompras(char caminho[], 
+    vector<string>& clientes, 
+    map<string, int>& mapaClientes, 
+    vector<string>& produtos, 
+    map<int, int>& mapaProdutos, 
+    vector<vector<int>>& listaDeCompras
+);
+
+#endif
