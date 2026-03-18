@@ -15,8 +15,6 @@ vector<vector<int>> gerarMatrizComprasGrande (vector<vector<int>> &ListaDeCompra
 }
 
 vector<vector<int>> gerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos) {
-    cout << numeroDeClientes << endl;
-
     vector<vector<int>> MatrizIntersecao (numeroDeClientes, vector<int>(numeroDeClientes,0));
 
     for(int i =0; i < numeroDeClientes; i++){
