@@ -27,6 +27,23 @@ vector<vector<int>> gerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1
     return MatrizIntersecao;   
 }
 
+vector<vector<int>> gerarMatrizIntersecaoOtimizada (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos) {
+    vector<vector<int >> matrizIntersecaoOtimizada (numeroDeClientes, vector<int>(numeroDeClientes,0));
+
+    for(int i = 0; i < numeroDeClientes; i++){
+        for (int j = i; j < numeroDeClientes; j++){
+            int soma = 0;
+            for (int k = 0; k < numDeProdutos; k++){
+                soma += MatrizDeCompras1[i][k] * MatrizDeCompras1[j][k];
+            }
+            matrizIntersecaoOtimizada[i][j] = soma;
+            matrizIntersecaoOtimizada[j][i] = soma;
+        }
+    }
+    return matrizIntersecaoOtimizada;
+}
+
+
 vector<vector<float>> gerarMatrizSimilaridade(vector<vector<int>> &MatrizIntersecao){
     
     int numeroClientes = MatrizIntersecao.size();
