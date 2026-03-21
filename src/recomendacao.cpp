@@ -3,7 +3,7 @@
 vector<string> listaVizinhos(vector<vector<float>> &similaridade, vector<string> &clientesVector, int indiceCliente){
     vector<string> vizinhos;
     for(int j = 0; j < similaridade[indiceCliente].size(); j++){
-        if(similaridade[indiceCliente][j] < 1.0 && similaridade[indiceCliente][j] > 0.0){
+        if(j != indiceCliente && similaridade[indiceCliente][j] < 1.0 && similaridade[indiceCliente][j] > 0.0){
             vizinhos.push_back(clientesVector[j]);
         }
     }
