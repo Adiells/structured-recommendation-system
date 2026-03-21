@@ -7,6 +7,7 @@
 #include "listaCompras.h"
 #include "matrizSimilaridade.h"
 #include "utils.h"
+#include "recomendacao.h"
 
 using namespace std;
 
@@ -31,7 +32,11 @@ int main(int argc, char **argv){
 
     vector<vector<float>> MatrizSimilaridade = gerarMatrizSimilaridade(MatrizIntersecao);
 
-    imprimirVetor(codigoClientesVector);
+    int k = atoi(argv[3]);
+
+    rankeamento(MatrizSimilaridade, codigoClientesVector, nomeProdutosVector, codigoClientesMapa, listaFinalCompras, argv[2], k);
+
+    // imprimirVetor(codigoClientesVector);
 
     // imprimirMapa(codigoClientesMapa);
     //  imprimirMatriz(MatrizDeCompras1);
