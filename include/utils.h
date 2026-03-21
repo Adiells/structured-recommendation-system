@@ -1,3 +1,6 @@
+#ifndef UTILS_H
+#define UTILS_H
+
 #include <vector>
 #include <map>
 #include <iostream>
@@ -30,3 +33,5 @@ void imprimirMatriz(vector<vector<T>>& matriz){
         cout << endl;
     }
 }
+
+#endif
