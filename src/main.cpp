@@ -9,6 +9,8 @@
 #include "utils.h"
 #include "recomendacao.h"
 
+#include <ctime>
+
 using namespace std;
 
 int main(int argc, char **argv){
@@ -28,9 +30,20 @@ int main(int argc, char **argv){
 
     vector<vector<int>> MatrizDeCompras1 = gerarMatrizComprasGrande(listaFinalCompras, numeroDeClientes, numeroDeProdutos);
 
+    clock_t inicioMatrizIntersecao = clock();
     vector<vector<int>> MatrizIntersecao = gerarMatrizIntersecao(MatrizDeCompras1, numeroDeClientes, numeroDeProdutos);
+    clock_t fimMatrizIntersecao = clock();
+    double tempoMatrizIntercessao = double(fimMatrizIntersecao - inicioMatrizIntersecao) / CLOCKS_PER_SEC;
+    printf("O tempo de execução para a Matriz Intercessão foi: %.3f segundos \n", tempoMatrizIntercessao);
 
-    vector<vector<float>> MatrizSimilaridade = gerarMatrizSimilaridade(MatrizIntersecao);
+    clock_t inicioMatrizIntercessaoOtimizada = clock();
+    vector<vector<int>> matrizIntercessaoOtimizada = gerarMatrizIntersecaoOtimizada(MatrizDeCompras1, numeroDeClientes, numeroDeProdutos);
+    clock_t fimMatrizIntersecaoOtimizada = clock();
+    double tempoMatrizIntercessaoOtimizada = double(fimMatrizIntersecaoOtimizada - inicioMatrizIntercessaoOtimizada) / CLOCKS_PER_SEC;
+    printf("O tempo de execução para a Matriz Intercessão Otimizada foi: %.3f segundos \n", tempoMatrizIntercessaoOtimizada);
+
+
+    vector<vector<float>> MatrizSimilaridade = gerarMatrizSimilaridade(matrizIntercessaoOtimizada);
 
     int k = atoi(argv[3]);
 
