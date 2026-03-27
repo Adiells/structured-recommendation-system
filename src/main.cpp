@@ -47,6 +47,7 @@ int main(int argc, char **argv){
 
     int k = atoi(argv[3]);
 
+
     rankeamento(MatrizSimilaridade, codigoClientesVector, nomeProdutosVector, codigoClientesMapa, listaFinalCompras, argv[2], k);
 
     // imprimirVetor(codigoClientesVector);

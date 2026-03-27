@@ -3,7 +3,9 @@
 vector<string> listaVizinhos(vector<vector<float>> &similaridade, vector<string> &clientesVector, int indiceCliente){
     vector<string> vizinhos;
     for(int j = 0; j < similaridade[indiceCliente].size(); j++){
-        if(j != indiceCliente && similaridade[indiceCliente][j] < 1.0 && similaridade[indiceCliente][j] > 0.0){
+        if (j == indiceCliente) continue;
+        
+        if(similaridade[indiceCliente][j] < 1.0 && similaridade[indiceCliente][j] > 0.0){
             vizinhos.push_back(clientesVector[j]);
         }
     }
@@ -54,7 +56,8 @@ vector<ItemRanking> ordenarVetorRankeamento(vector<float> &rankeamento){
 void imprimirNomeProduto(vector<ItemRanking> &produtosOrdenados, int qtdProdutos, vector<string> &nomeProdutos){
     for(int i = 0; i < qtdProdutos; i++){
         string nomeProduto = nomeProdutos[produtosOrdenados[i].indice];
-        cout << "Produto: " << i+1 << " | " << nomeProduto << endl;
+        printf("Produto: %d | %s \n", i+1, nomeProduto.c_str());
+        // cout << "Produto: " << i+1 << " | " << nomeProduto << endl;
     }
 }
 
@@ -64,5 +67,9 @@ void rankeamento(vector<vector<float>> &similaridade, vector<string> &clientesVe
     vector<string> vizinhos = listaVizinhos(similaridade, clientesVector, indiceInternoCliente);
     vector<float> ranking = listaRankeamento(similaridade, vizinhos, matrizCompras, mapaClientes, indiceInternoCliente, produtosVector.size());
     vector<ItemRanking> rankingOrdenado = ordenarVetorRankeamento(ranking);
+    if (kProdutos < rankingOrdenado.size()) {
+        kProdutos = rankingOrdenado.size();
+        printf ("Número de produtos para rankeamento excede o número de produtos disponíveis.\n");
+    }
     imprimirNomeProduto(rankingOrdenado, kProdutos, produtosVector);
 }
