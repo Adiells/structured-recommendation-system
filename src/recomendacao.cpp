@@ -12,7 +12,7 @@ vector<string> listaVizinhos(vector<vector<float>> &similaridade, vector<string>
     return vizinhos;
 }
 
-vector<float> listaRankeamento(vector<vector<float>> &similaridade, vector<string> &vizinhos, vector<vector<int>> &compras, map<string, int> &mapaClientes, int indiceCliente, int qtdProdutos){
+vector<float> vetorRanking(vector<vector<float>> &similaridade, vector<string> &vizinhos, vector<vector<int>> &compras, map<string, int> &mapaClientes, int indiceCliente, int qtdProdutos){
     vector<float> ranking(qtdProdutos, 1.0);
 
     vector<int> comprou(qtdProdutos, 0);
@@ -38,7 +38,7 @@ bool ordenarPorScore(const ItemRanking &itemA, const ItemRanking &itemB){
     return itemA.score < itemB.score;
 }
 
-vector<ItemRanking> ordenarVetorRankeamento(vector<float> &rankeamento){
+vector<ItemRanking> ordenarVetorPorScore(vector<float> &rankeamento){
     vector<ItemRanking> vetorOrdenado;
     
     for(int i = 0; i < rankeamento.size(); i++){
@@ -61,12 +61,12 @@ void imprimirNomeProduto(vector<ItemRanking> &produtosOrdenados, int qtdProdutos
     }
 }
 
-void rankeamento(vector<vector<float>> &similaridade, vector<string> &clientesVector, vector<string> &produtosVector, map<string, int> &mapaClientes, vector<vector<int>> &matrizCompras, string codigoCliente, int kProdutos){
+void recomendacao(vector<vector<float>> &similaridade, vector<string> &clientesVector, vector<string> &produtosVector, map<string, int> &mapaClientes, vector<vector<int>> &matrizCompras, string codigoCliente, int kProdutos){
     int indiceInternoCliente = mapaClientes[codigoCliente];
 
     vector<string> vizinhos = listaVizinhos(similaridade, clientesVector, indiceInternoCliente);
-    vector<float> ranking = listaRankeamento(similaridade, vizinhos, matrizCompras, mapaClientes, indiceInternoCliente, produtosVector.size());
-    vector<ItemRanking> rankingOrdenado = ordenarVetorRankeamento(ranking);
+    vector<float> ranking = vetorRanking(similaridade, vizinhos, matrizCompras, mapaClientes, indiceInternoCliente, produtosVector.size());
+    vector<ItemRanking> rankingOrdenado = ordenarVetorPorScore(ranking);
     if (kProdutos < rankingOrdenado.size()) {
         kProdutos = rankingOrdenado.size();
         printf ("Número de produtos para rankeamento excede o número de produtos disponíveis.\n");

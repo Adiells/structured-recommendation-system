@@ -1,5 +1,5 @@
 #include "listaCompras.h"
-#include "matrizSimilaridade.h"
+#include "similaridade.h"
 
 vector<vector<int>> gerarMatrizComprasGrande (vector<vector<int>> &ListaDeCompras, int numeroDeClientes, int numDeProdutos){
 

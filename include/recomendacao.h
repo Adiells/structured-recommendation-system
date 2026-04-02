@@ -11,12 +11,12 @@ typedef struct{
 
 vector<string> listaVizinhos(vector<vector<float>> &similaridade, vector<string> &clientesVector, int indiceCliente);
 
-vector<float> listaRankeamento(vector<vector<float>> &similaridade, vector<string> &vizinhos, vector<vector<int>> &compras, map<string, int> &mapaClientes, int indiceCliente, int qtdProdutos);
+vector<float> vetorRanking(vector<vector<float>> &similaridade, vector<string> &vizinhos, vector<vector<int>> &compras, map<string, int> &mapaClientes, int indiceCliente, int qtdProdutos);
 
 bool ordenarPorScore(const ItemRanking &itemA, const ItemRanking &itemB);
 
-vector<ItemRanking> ordenarVetorRankeamento(vector<float> &rankeamento);
+vector<ItemRanking> ordenarVetorPorScore(vector<float> &rankeamento);
 
 void imprimirNomeProduto(vector<ItemRanking> &produtosOrdenados, int qtdProdutos, vector<string> &nomeProdutos);
 
-void rankeamento(vector<vector<float>> &similaridade, vector<string> &clientesVector, vector<string> &produtosVector, map<string, int> &mapaClientes, vector<vector<int>> &matrizCompras, string codigoCliente, int kProdutos);
+void recomendacao(vector<vector<float>> &similaridade, vector<string> &clientesVector, vector<string> &produtosVector, map<string, int> &mapaClientes, vector<vector<int>> &matrizCompras, string codigoCliente, int kProdutos);
