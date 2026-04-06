@@ -1,4 +1,4 @@
-outputs
+outputs/
 .venv/
 __pycache__/
 *.pyc
@@ -10,3 +10,4 @@ outputs/sistema
 data/*.csv
 data/*.zip
 .vscode/
+*.so
