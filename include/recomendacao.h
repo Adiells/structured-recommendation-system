@@ -19,4 +19,4 @@ vector<ItemRanking> ordenarVetorPorScore(vector<float> &rankeamento);
 
 void imprimirNomeProduto(vector<ItemRanking> &produtosOrdenados, int qtdProdutos, vector<string> &nomeProdutos);
 
-void recomendacao(vector<vector<float>> &similaridade, vector<string> &clientesVector, vector<string> &produtosVector, map<string, int> &mapaClientes, vector<vector<int>> &matrizCompras, string codigoCliente, int kProdutos);
+vector<string> recomendacao(vector<vector<float>> &similaridade, vector<string> &clientesVector, vector<string> &produtosVector, map<string, int> &mapaClientes, vector<vector<int>> &matrizCompras, string codigoCliente, int kProdutos);

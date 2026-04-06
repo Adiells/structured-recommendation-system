@@ -1,1 +1,12 @@
 outputs
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+build/
+*.so
+outputs/out
+outputs/sistema
+data/*.csv
+data/*.zip
+.vscode/
