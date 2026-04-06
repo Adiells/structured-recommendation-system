@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "listaCompras.h"
-#include "matrizSimilaridade.h"
+#include "similaridade.h"
 #include "utils.h"
 #include "recomendacao.h"
 
@@ -48,7 +48,7 @@ int main(int argc, char **argv){
     int k = atoi(argv[3]);
 
 
-    rankeamento(MatrizSimilaridade, codigoClientesVector, nomeProdutosVector, codigoClientesMapa, listaFinalCompras, argv[2], k);
+    recomendacao(MatrizSimilaridade, codigoClientesVector, nomeProdutosVector, codigoClientesMapa, listaFinalCompras, argv[2], k);
 
     // imprimirVetor(codigoClientesVector);
 
