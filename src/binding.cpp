@@ -7,10 +7,6 @@
 
 namespace py = pybind11;
 
-int soma_teste(int a, int b){
-    return a + b;
-}
-
 PYBIND11_MODULE(recomendacao, m){
     m.doc() = "Sistema de recomendação de produtos";
 
@@ -23,13 +19,11 @@ PYBIND11_MODULE(recomendacao, m){
     m.def(
         "gerar_matriz_intersecao",
         &gerarMatrizIntersecao,
-        "Recebe uma matriz de compras, o numero de clientes e o numero de produtos e retorna uma matriz de intersecao. "
-    );
-
-    m.def(
-        "gerar_matriz_intersecao_otimizada",
-        &gerarMatrizIntersecaoOtimizada,
-        "Recebe uma matriz de compras, o numero de clientes e o numero de produtos e retorna uma matriz de intersecao. "
+        "Recebe uma matriz de compras, numero de clientes, numero de produtos e opcionalmente otimizada.",
+        py::arg("matriz"),
+        py::arg("numero_de_clientes"),
+        py::arg("numero_de_produtos"),
+        py::arg("otimizada") = true
     );
 
     m.def(
@@ -43,6 +37,4 @@ PYBIND11_MODULE(recomendacao, m){
         &recomendacao,
         "Recebe uma matriz de similaridade, um vetor de clientes, um vetor de produtos, um mapa de clientes, uma matriz de compras, o codigo do cliente e a quantidade de produtos para recomendação e retorna uma lista de produtos recomendados. "
     );
-
-    m.def("soma_teste", &soma_teste, "Função de teste para verificar a integração do pybind11.");
 }

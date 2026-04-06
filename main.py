@@ -12,20 +12,22 @@ def main():
     codigoCliente = sys.argv[2]
     quantidadeProdutosRecomendados = int(sys.argv[3]) 
    
-    clientes, mapaClientes, produtos, mapaProdutos, listaDeCompras = gerarListaCompras(caminhoCsv)
+    clientes, mapaClientes, produtos, listaDeCompras = gerarListaCompras(caminhoCsv)
     
+    print("Gerando matriz de compras...")
     matrizCompras = recomendacao.gerar_matriz_compras_grande(listaDeCompras, len(clientes), len(produtos))
     print("Matriz de Compras gerada com sucesso!\n")
     
-    matrizDeIntersecao = recomendacao.gerar_matriz_intersecao_otimizada(matrizCompras, len(clientes), len(produtos))
+    print("Gerando matriz interseção...")
+    matrizDeIntersecao = recomendacao.gerar_matriz_intersecao(matrizCompras, len(clientes), len(produtos))
     print("Matriz de Interseção gerada com sucesso!\n")
 
+    print("Gerando matriz de similaridade...")
     matrizDeSimilaridade = recomendacao.gerar_matriz_similaridade(matrizDeIntersecao)
     print("Matriz de Similaridade gerada com sucesso!\n")
 
     produtosRecomendados = recomendacao.recomendacao(matrizDeSimilaridade,clientes,produtos,mapaClientes,matrizCompras,codigoCliente,quantidadeProdutosRecomendados)
     print("Lista de produtos recomendados gerada!\n")
-    
     print(f"TOP {quantidadeProdutosRecomendados} RECOMENDAÇÕES PARA O CLIENTE {codigoCliente}\n")
     
     if not produtosRecomendados:

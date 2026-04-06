@@ -18,7 +18,6 @@ def gerarListaCompras(caminho):
             if len(linha) != 4:
                 continue 
             
-            dataCompra = linha[0]
             codigoCliente = linha[1]
             codigoProduto = int(linha[2]) 
             nomeProduto = linha[3]
@@ -43,4 +42,4 @@ def gerarListaCompras(caminho):
             
             listaDeCompras[indiceCliente].append(indice_produto)
             
-    return clientes, mapaClientes, produtos, mapaProdutos, listaDeCompras
+    return clientes, mapaClientes, produtos, listaDeCompras

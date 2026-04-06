@@ -14,7 +14,8 @@ vector<vector<int>> gerarMatrizComprasGrande (vector<vector<int>> &ListaDeCompra
     return MatrizCompras;
 }
 
-vector<vector<int>> gerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos) {
+vector<vector<int>> gerarMatrizIntersecaoComum (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos) {
+    printf("intersecao comum");
     vector<vector<int>> MatrizIntersecao (numeroDeClientes, vector<int>(numeroDeClientes,0));
 
     for(int i =0; i < numeroDeClientes; i++){
@@ -28,6 +29,7 @@ vector<vector<int>> gerarMatrizIntersecao (vector<vector<int>> &MatrizDeCompras1
 }
 
 vector<vector<int>> gerarMatrizIntersecaoOtimizada (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos) {
+    printf("intersecao otimizada");
     vector<vector<int >> matrizIntersecaoOtimizada (numeroDeClientes, vector<int>(numeroDeClientes,0));
 
     for(int i = 0; i < numeroDeClientes; i++){
@@ -43,6 +45,13 @@ vector<vector<int>> gerarMatrizIntersecaoOtimizada (vector<vector<int>> &MatrizD
     return matrizIntersecaoOtimizada;
 }
 
+vector<vector<int>> gerarMatrizIntersecao(vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos, int otimizada) {
+    if(otimizada){
+        return gerarMatrizIntersecaoOtimizada(MatrizDeCompras1, numeroDeClientes, numDeProdutos);
+    }else{
+        return gerarMatrizIntersecaoComum(MatrizDeCompras1, numeroDeClientes, numDeProdutos);
+    }
+}
 
 vector<vector<float>> gerarMatrizSimilaridade(vector<vector<int>> &MatrizIntersecao){
     
