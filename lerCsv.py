@@ -19,7 +19,7 @@ def gerarListaCompras(caminho):
                 continue 
             
             codigoCliente = linha[1]
-            codigoProduto = int(linha[2]) 
+            codigoProduto = linha[2]
             nomeProduto = linha[3]
             
             if codigoCliente not in mapaClientes:
