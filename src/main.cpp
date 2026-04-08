@@ -31,7 +31,7 @@ int main(int argc, char **argv){
     vector<vector<int>> MatrizDeCompras1 = gerarMatrizComprasGrande(listaFinalCompras, numeroDeClientes, numeroDeProdutos);
 
     clock_t inicioMatrizIntersecao = clock();
-    vector<vector<int>> MatrizIntersecao = gerarMatrizIntersecao(MatrizDeCompras1, numeroDeClientes, numeroDeProdutos);
+    vector<vector<int>> MatrizIntersecao = gerarMatrizIntersecaoComum(MatrizDeCompras1, numeroDeClientes, numeroDeProdutos);
     clock_t fimMatrizIntersecao = clock();
     double tempoMatrizIntercessao = double(fimMatrizIntersecao - inicioMatrizIntersecao) / CLOCKS_PER_SEC;
     printf("O tempo de execução para a Matriz Intercessão foi: %.3f segundos \n", tempoMatrizIntercessao);
