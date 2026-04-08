@@ -15,7 +15,6 @@ vector<vector<int>> gerarMatrizComprasGrande (vector<vector<int>> &ListaDeCompra
 }
 
 vector<vector<int>> gerarMatrizIntersecaoComum (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos) {
-    printf("intersecao comum");
     vector<vector<int>> MatrizIntersecao (numeroDeClientes, vector<int>(numeroDeClientes,0));
 
     for(int i =0; i < numeroDeClientes; i++){
@@ -29,7 +28,6 @@ vector<vector<int>> gerarMatrizIntersecaoComum (vector<vector<int>> &MatrizDeCom
 }
 
 vector<vector<int>> gerarMatrizIntersecaoOtimizada (vector<vector<int>> &MatrizDeCompras1, int numeroDeClientes, int numDeProdutos) {
-    printf("intersecao otimizada");
     vector<vector<int >> matrizIntersecaoOtimizada (numeroDeClientes, vector<int>(numeroDeClientes,0));
 
     for(int i = 0; i < numeroDeClientes; i++){

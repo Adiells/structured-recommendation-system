@@ -56,7 +56,7 @@ vector<ItemRanking> ordenarVetorPorScore(vector<float> &rankeamento){
 void imprimirNomeProduto(vector<ItemRanking> &produtosOrdenados, int qtdProdutos, vector<string> &nomeProdutos){
     for(int i = 0; i < qtdProdutos; i++){
         string nomeProduto = nomeProdutos[produtosOrdenados[i].indice];
-        printf("Produto: %d | %s \n", i+1, nomeProduto.c_str());
+        // printf("Produto: %d | %s \n", i+1, nomeProduto.c_str());
         // cout << "Produto: " << i+1 << " | " << nomeProduto << endl;
     }
 }
