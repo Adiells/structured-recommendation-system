@@ -6,7 +6,6 @@ ext_modules = [
         "recomendacao",
         [
             "src/binding.cpp", 
-            "src/listaCompras.cpp", 
             "src/similaridade.cpp", 
             "src/recomendacao.cpp"
         ],
