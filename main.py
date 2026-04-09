@@ -26,7 +26,7 @@ def main():
     matrizDeSimilaridade = recomendacao.gerar_matriz_similaridade(matrizDeIntersecao)
     print("Matriz de Similaridade gerada com sucesso!\n")
 
-    produtosRecomendados = recomendacao.recomendacao(matrizDeSimilaridade,clientes,produtos,mapaClientes,matrizCompras,codigoCliente,quantidadeProdutosRecomendados)
+    produtosRecomendados = recomendacao.recomendacao(matrizDeSimilaridade,clientes,produtos,mapaClientes,listaDeCompras,codigoCliente,quantidadeProdutosRecomendados)
     print("Lista de produtos recomendados gerada!\n")
     print(f"TOP {quantidadeProdutosRecomendados} RECOMENDAÇÕES PARA O CLIENTE {codigoCliente}\n")
     
